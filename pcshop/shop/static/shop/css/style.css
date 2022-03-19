@@ -1,0 +1,142 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem;
+  background-color: #201335;
+  color: #d9dbf1;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  animation: colorRotate 6s linear 0s infinite;
+}
+
+.nav-logo {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-logo a:link,
+.nav-logo a:visited {
+  animation: colorRotate 5s linear 0s infinite;
+}
+
+.nav-logo a:hover,
+.nav-logo a:active {
+  color: #fff;
+  animation: unset;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-list ul {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.6rem;
+}
+
+.nav-list-item {
+  cursor: pointer;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.nav-list-item:hover {
+  animation: colorRotate 6s linear 0s infinite;
+}
+
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
+  }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
+
+.header {
+  margin-top: 5rem;
+  text-align: center;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.header-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+.header-text {
+  margin-top: 1.2rem;
+  font-size: 1.8rem;
+}
+
+.header-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+}
+
+/* HOME PRODUCTS */
+
+.home-products {
+  margin-top: 5rem;
+}
+
+.product {
+  width: 80%; /* ! SREDITI SLIKU DA BUDE MANJA */
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  transition: all 0.3s ease-in;
+}
+
+.product:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+.product-name {
+  margin: 1.2rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.product img {
+  border-radius: 9px;
+  width: 100%;
+}
+
+.product-price {
+  margin-top: 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.product-description {
+  margin-top: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.product-btn {
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+.product-btn a {
+  color: #d9dbf1;
+}
