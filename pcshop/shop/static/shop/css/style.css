@@ -1,4 +1,5 @@
 .nav {
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   padding: 2.5rem;
@@ -66,7 +67,17 @@
   }
 }
 
+/* STICKY NAVIGATION */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+/* Header */
 .header {
+  padding-top: 7rem; /* Because is sticky nav */
   margin-top: 5rem;
   text-align: center;
   padding-bottom: 5rem;
@@ -92,11 +103,12 @@
 /* HOME PRODUCTS */
 
 .home-products {
+  max-width: 100%;
   display: grid;
-  column-gap: 3rem;
-  row-gap: 3.6rem;
+  column-gap: 1rem;
+  row-gap: 3rem;
   margin-top: 5rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .product {
@@ -115,7 +127,7 @@
 .product-name {
   margin: 1.2rem;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 600;
 }
 
@@ -140,11 +152,115 @@
   line-height: 1.2;
 }
 
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
 .product-btn {
-  margin-top: 0.4rem;
+  margin-top: 1.8rem;
   font-weight: 500;
+  background: none;
+  color: #201335;
+  border: 1px solid #201335;
+  transition: all 0.5s ease-in-out;
+}
+
+.product-btn:hover {
+  background-color: #201335;
 }
 
 .product-btn a {
+  font-weight: 600;
+  color: #201335;
+}
+
+.product-btn:hover.product-btn a {
   color: #d9dbf1;
+}
+
+.product-btn-card {
+  margin-top: 1.8rem;
+  padding: 1rem 2rem;
+  background-color: #ff4646;
+  transition: all 0.5s ease-in-out;
+}
+
+.icon-card {
+  width: 2.2rem;
+  height: 2.2rem;
+  color: #ffffff;
+}
+
+.product-btn-card:hover {
+  background-color: #e70505;
+}
+
+.icon-heading-checkmark {
+  color: #00ff00;
+}
+
+.icon-heading-flash {
+  color: #ffff00;
+}
+
+.icon-heading-accessibility {
+  color: #9acd32;
+}
+
+/* Payment */
+
+.payment {
+  margin: 12rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment img {
+  height: 29px;
+  padding-right: 2rem;
+}
+
+.payment img:last-child() {
+  padding-right: 0;
+}
+
+/* Footer */
+
+.copyright {
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  margin-top: 1.5rem;
+  color: #c5c5c5;
+}
+
+.footer-title-author {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #c5c5c5;
+}
+
+.author {
+  margin-top: 0.8rem;
+  font-size: 1.2rem;
+  color: #6666ff;
+}
+
+.footer-list-item {
+  font-size: 1.6rem;
+  color: #c5c5c5;
+}
+
+.footer-list-item:hover {
+  color: #e70505;
+}
+
+.footer-list li {
+  margin-bottom: 1rem;
+}
+
+.footer-list li:last-child() {
+  margin-bottom: 0;
 }

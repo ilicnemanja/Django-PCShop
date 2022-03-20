@@ -35,11 +35,23 @@
         </div>
     </div>
 
-    {% block content %}
-    {% endblock %}
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
     
 
+    <div class="payment">
+        <img src="{% static 'shop/image/payment/visa.png' %}" alt="payment method">
+        <img src="{% static 'shop/image/payment/mastercard.png' %}" alt="payment method">
+        <img src="{% static 'shop/image/payment/komercijalnabanka.png' %}" alt="payment method">
+        <img src="{% static 'shop/image/payment/bankaintesa.png' %}" alt="payment method">
+        <img src="{% static 'shop/image/payment/raiffeisenbanka.png' %}" alt="payment method">
+    </div>
 
+    {% include 'shop/footer.html' %}
+
+    <script src="{% static 'shop/js/index.js' %}"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

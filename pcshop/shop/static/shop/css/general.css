@@ -48,8 +48,8 @@ ul li {
 
 .grid {
   display: grid;
-  column-gap: 6.4rem;
-  row-gap: 9.6rem;
+  column-gap: 2rem;
+  row-gap: 1rem;
   justify-content: center;
 }
 
@@ -61,14 +61,18 @@ ul li {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.grid--5-cols {
+  grid-template-columns: 1.5fr 1.2fr 1.2fr 1fr 1.3fr;
+}
+
 .btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
 
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 400;
-  padding: 1rem 2rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 9px;
 
   /* Only necessary for .btn */
@@ -82,4 +86,35 @@ ul li {
 .btn:hover,
 .btn:active {
   background-color: #321e53;
+}
+
+.heading-primary {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.6rem;
+  margin-top: 5rem;
+  padding-left: 3rem;
+  font-weight: 700;
+}
+.icon-heading {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Footer */
+.footer {
+  border-top: 2px solid #455561;
+  background-color: #201335;
+  max-width: 100%;
+  height: 30rem;
+}
+
+.footer div {
+  margin-top: 4rem;
+}
+
+.footer-title {
+  color: aliceblue;
+  font-size: 1.8rem;
+  margin-bottom: 3rem;
 }
