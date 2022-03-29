@@ -1,3 +1,5 @@
+/* NAVIGATION */
+
 .nav {
   overflow: hidden;
   display: flex;
@@ -11,7 +13,7 @@
 }
 
 .nav-logo {
-  font-size: 2.4rem;
+  font-size: 3rem;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -68,6 +70,7 @@
 }
 
 /* STICKY NAVIGATION */
+
 .sticky {
   position: fixed;
   top: 0;
@@ -75,7 +78,8 @@
   z-index: 999;
 }
 
-/* Header */
+/* HEADER */
+
 .header {
   padding-top: 7rem; /* Because is sticky nav */
   margin-top: 5rem;
@@ -112,11 +116,11 @@
 }
 
 .product {
+  width: 100%;
   justify-self: center;
   align-self: center;
   border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  padding: 2rem;
   transition: all 0.3s ease-in;
 }
 
@@ -124,11 +128,17 @@
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 }
 
+.product-content {
+ margin: 2rem;
+ cursor: pointer;
+}
+
 .product-name {
   margin: 1.2rem;
   text-align: center;
   font-size: 1.6rem;
   font-weight: 600;
+  padding-bottom: 2rem;
 }
 
 .product img {
@@ -150,46 +160,32 @@
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.2;
+  padding-block: 1rem;
 }
 
-.btns {
+.product-btn-card:link {
   display: flex;
-  justify-content: space-between;
-}
-
-.product-btn {
-  margin-top: 1.8rem;
-  font-weight: 500;
-  background: none;
-  color: #201335;
-  border: 1px solid #201335;
-  transition: all 0.5s ease-in-out;
-}
-
-.product-btn:hover {
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  height: 5rem;
+  width: 100%;
   background-color: #201335;
-}
-
-.product-btn a {
-  font-weight: 600;
-  color: #201335;
-}
-
-.product-btn:hover.product-btn a {
-  color: #d9dbf1;
-}
-
-.product-btn-card {
-  margin-top: 1.8rem;
-  padding: 1rem 2rem;
-  background-color: #ff4646;
   transition: all 0.5s ease-in-out;
 }
 
 .icon-card {
+  text-align: center;
   width: 2.2rem;
   height: 2.2rem;
   color: #ffffff;
+}
+
+
+.not-in-stock-homepage {
+  font-size: 1.4rem;
+  text-align: center;
 }
 
 .product-btn-card:hover {
@@ -208,7 +204,7 @@
   color: #9acd32;
 }
 
-/* Payment */
+/* PAYMENT */
 
 .payment {
   margin: 12rem;
@@ -226,7 +222,7 @@
   padding-right: 0;
 }
 
-/* Footer */
+/* FOOTER */
 
 .copyright {
   font-size: 0.8rem;
@@ -263,4 +259,120 @@
 
 .footer-list li:last-child() {
   margin-bottom: 0;
+}
+
+/* PRODUCT DETAIL */
+
+.product-detail-name {
+  margin-top: 5rem;
+  margin-left: 6rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.product-category {
+  margin-top: 0.8rem;
+  margin-left: 6rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+}
+
+.product-detail {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 3rem;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 3rem;
+}
+
+.product-left {
+  margin: 2rem 3rem;
+}
+
+.product-right {
+  margin: 0 10rem;
+  border: 1px solid #ebebeb;
+  padding: 5rem;
+}
+
+.product-photo {
+  border-radius: 9px;
+}
+
+.product-online-shopping {
+  margin-top: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.allow li:before {
+  content: "•";
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  color: #00FF00;
+}
+
+.deny li:before {
+  content: "x";
+  font-size: 1.6rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  color: #ff0000;
+}
+
+.product-detail-price {
+  display: inline-block;
+  font-size: 2.4rem;
+  border-radius: 2px;
+  padding: 1rem;
+  border: 1px solid #201335;
+  background-color: #e70505da;
+  color: #fff;
+}
+
+.product-price-rate {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  border: 1px solid #c5c5c5;
+  padding: 2rem;
+}
+
+.product-cart, .product-buy {
+  text-transform: uppercase;
+  padding: 2rem;
+  border-radius: 2px;
+  margin-top: 4rem;
+  font-size: 1.6rem;
+}
+
+.product-cart {
+  background-color: #06bb06;
+}
+
+.product-cart:hover {
+  background-color: #56d856;
+}
+
+.product-buy {
+  margin-left: 0.8rem;
+  background-color: #0077ff;
+}
+
+.product-buy:hover {
+  background-color: #328ef7;
+}
+
+.product-action p {
+  font-size: 2rem;
+}
+
+.not-in-stock {
+  font-weight: 600;
+  margin-top: 2rem;
+  padding: 2rem;
+  color: #9c0f0f;
 }

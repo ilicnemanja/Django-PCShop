@@ -1,0 +1,65 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% load mathfilters %}
+
+{% block title %}
+PC Shop | {{product.name}}
+{% endblock title %}
+
+{% block content %}
+<h2 class="product-detail-name">{{product.name}}</h2>
+<p class="product-category">{{product.category}}</p>
+<div class="product-detail">
+    <div class="product-left">
+        <img class="product-photo" src="{% static 'shop/image/product.png' %}" alt="Product Photo">
+    </div>
+    <div class="product-right">
+        <h3 class="product-detail-price">{{product.price}} RSD</h3>
+        {% if product.online_shopping %}
+            <ul class="product-online-shopping allow">
+                <li>Proizvod raspoloživ za online kupovinu</li>
+            </ul>
+        {% else %}
+            <ul class="product-online-shopping deny">
+                <li>Proizvod nije raspoloživ za online kupovinu</li>
+            </ul>
+        {% endif %}
+        <p class="product-description">{{product.description}}</p>
+        <p class="product-price-rate">Prodaja na rate bez kamate, već od: {{product.price|intdiv:24}} RSD mesečno</p>
+        {% if product.in_stock %}
+            <div class="product-action">
+                <button class="btn product-cart product-cart-allow"><a href="#">Dodaj u korpu</a></button>
+                <button class="btn product-buy product-buy-allow"><a href="#">Kupi odmah</a></button>
+            </div>
+        {% else %}
+            <div class="product-action">
+                <p class="not-in-stock">Nije dostupno</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+
+<h3 class="heading-primary">Preporuka Desktop i laptop računara <ion-icon class="icon-heading icon-heading-accessibility" name="accessibility-outline"></ion-icon></h3>
+<div class="container">
+    <div class="home-products home-recommendation">
+        {% for product in products %}
+            {% if product.recommendation and product.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' product.category product.id %}';">
+                        <h3 class="product-name">{{product.name|truncatechars:33}}</h3>
+                        <img src="{% static 'shop/image/product.png' %}" alt="Product image">
+                        <p class="product-price">{{product.price}} RSD</p>
+                        <p class="product-description">{{product.description|truncatechars:60}}</p>
+                    </div>
+                    {% if product.in_stock %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Nije dostupno</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

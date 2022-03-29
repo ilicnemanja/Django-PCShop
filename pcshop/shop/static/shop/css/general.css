@@ -80,12 +80,18 @@ ul li {
   cursor: pointer;
   font-family: inherit;
 
+  color: #fff;
   background-color: #201335;
 }
 
 .btn:hover,
 .btn:active {
   background-color: #321e53;
+}
+
+.btn a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .heading-primary {
