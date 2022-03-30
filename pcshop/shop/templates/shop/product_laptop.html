@@ -1,0 +1,33 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<h3 class="heading-primary">Prenosni računari</h3>
+<div class="container">
+    <div class="home-products">
+        {% for laptop in laptops %}
+            {% if laptop.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' laptop.category laptop.id %}';">
+                        <h3 class="product-name">{{laptop.name|truncatechars:33}}</h3>
+                        <img src="{% if laptop.image %}{{ laptop.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{laptop.price}} RSD</p>
+                        <p class="product-description">{{laptop.description|truncatechars:60}}</p>
+                    </div>
+                    {% if laptop.in_stock and laptop.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock content %}

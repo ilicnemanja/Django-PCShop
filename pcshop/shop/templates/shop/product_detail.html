@@ -11,7 +11,7 @@ PC Shop | {{product.name}}
 <p class="product-category">{{product.category}}</p>
 <div class="product-detail">
     <div class="product-left">
-        <img class="product-photo" src="{% static 'shop/image/product.png' %}" alt="Product Photo">
+        <img class="product-photo" src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product Photo">
     </div>
     <div class="product-right">
         <h3 class="product-detail-price">{{product.price}} RSD</h3>
@@ -26,14 +26,18 @@ PC Shop | {{product.name}}
         {% endif %}
         <p class="product-description">{{product.description}}</p>
         <p class="product-price-rate">Prodaja na rate bez kamate, već od: {{product.price|intdiv:24}} RSD mesečno</p>
-        {% if product.in_stock %}
+        {% if product.in_stock and product.online_shopping %}
             <div class="product-action">
                 <button class="btn product-cart product-cart-allow"><a href="#">Dodaj u korpu</a></button>
                 <button class="btn product-buy product-buy-allow"><a href="#">Kupi odmah</a></button>
             </div>
         {% else %}
             <div class="product-action">
-                <p class="not-in-stock">Nije dostupno</p>
+                {% if not product.in_stock %}
+                    <p class="not-in-stock">Prodato</p>
+                {% else %}
+                <p class="not-in-stock">Kupovina u radnji</p>
+                {% endif %}
             </div>
         {% endif %}
     </div>
@@ -48,14 +52,14 @@ PC Shop | {{product.name}}
                 <div class="product">
                     <div class="product-content" onclick="location.href='{% url 'product_detail' product.category product.id %}';">
                         <h3 class="product-name">{{product.name|truncatechars:33}}</h3>
-                        <img src="{% static 'shop/image/product.png' %}" alt="Product image">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
                         <p class="product-price">{{product.price}} RSD</p>
                         <p class="product-description">{{product.description|truncatechars:60}}</p>
                     </div>
-                    {% if product.in_stock %}
+                    {% if product.in_stock and product.online_shopping %}
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
-                        <p class="not-in-stock not-in-stock-homepage">Nije dostupno</p>
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
                     {% endif %}
                 </div>
             {% endif %}

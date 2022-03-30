@@ -10,14 +10,19 @@
                 <div class="product">
                     <div class="product-content" onclick="location.href='{% url 'product_detail' product.category product.id %}';">
                         <h3 class="product-name">{{product.name|truncatechars:33}}</h3>
-                        <img src="{% static 'shop/image/product.png' %}" alt="Product image">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
                         <p class="product-price">{{product.price}} RSD</p>
                         <p class="product-description">{{product.description|truncatechars:60}}</p>
                     </div>
-                    {% if product.in_stock %}
+                    
+                    {% if product.in_stock and product.online_shopping %}
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
-                        <p class="not-in-stock not-in-stock-homepage">Nije dostupno</p>
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endif %}
@@ -34,14 +39,18 @@
                 <div class="product">
                     <div class="product-content" onclick="location.href='{% url 'product_detail' product.category product.id %}';">
                         <h3 class="product-name">{{product.name|truncatechars:33}}</h3>
-                        <img src="{% static 'shop/image/product.png' %}" alt="Product image">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
                         <p class="product-price">{{product.price}} RSD</p>
                         <p class="product-description">{{product.description|truncatechars:60}}</p>
                     </div>
-                    {% if product.in_stock %}
+                    {% if product.in_stock and product.online_shopping %}
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
-                        <p class="not-in-stock not-in-stock-homepage">Nije dostupno</p>
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endif %}
@@ -58,14 +67,18 @@
                 <div class="product">
                     <div class="product-content" onclick="location.href='{% url 'product_detail' product.category product.id %}';">
                         <h3 class="product-name">{{product.name|truncatechars:33}}</h3>
-                        <img src="{% static 'shop/image/product.png' %}" alt="Product image">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
                         <p class="product-price">{{product.price}} RSD</p>
                         <p class="product-description">{{product.description|truncatechars:60}}</p>
                     </div>
-                    {% if product.in_stock %}
+                    {% if product.in_stock and product.online_shopping %}
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
-                        <p class="not-in-stock not-in-stock-homepage">Nije dostupno</p>
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endif %}

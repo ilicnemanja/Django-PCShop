@@ -1,11 +1,11 @@
 <nav class="nav">
     <div class="nav-logo">
-        <a href="#">PC Shop</a>
+        <a href="{% url 'home' %}">PC Shop</a>
     </div>
     <div class="nav-list">
         <ul>
-            <li><a class="nav-list-item" href="#">Prenosni računari</a></li>
-            <li><a class="nav-list-item" href="#">Računari i komponente</a></li>
+            <li><a class="nav-list-item" href="{% url 'product_laptop' %}">Prenosni računari</a></li>
+            <li><a class="nav-list-item" href="{% url 'product_pc' %}">Računari i komponente</a></li>
             <li><a class="nav-list-item" href="#">Oprema za računare</a></li>
             <li><a class="nav-list-item" href="#">Gaming</a></li>
             <li><a class="nav-list-item" href="#">Prijavite se</a></li>

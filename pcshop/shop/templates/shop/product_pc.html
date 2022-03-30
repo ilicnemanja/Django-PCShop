@@ -1,0 +1,60 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<h3 class="heading-primary">Desktop računari</h3>
+<div class="container">
+    <div class="home-products">
+        {% for pc in pcs %}
+            {% if pc.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' pc.category pc.id %}';">
+                        <h3 class="product-name">{{pc.name|truncatechars:33}}</h3>
+                        <img src="{% if pc.image %}{{ pc.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{pc.price}} RSD</p>
+                        <p class="product-description">{{pc.description|truncatechars:60}}</p>
+                    </div>
+                    {% if pc.in_stock and pc.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+<h3 class="heading-primary">Procesori</h3>
+<div class="container">
+    <div class="home-products">
+        {% for processor in processors %}
+            {% if processor.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' processor.category processor.id %}';">
+                        <h3 class="product-name">{{processor.name|truncatechars:33}}</h3>
+                        <img src="{% if processor.image %}{{ processor.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{processor.price}} RSD</p>
+                        <p class="product-description">{{processor.description|truncatechars:60}}</p>
+                    </div>
+                    {% if processor.in_stock and processor.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock content %}
