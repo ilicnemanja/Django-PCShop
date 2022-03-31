@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="container grid grid--5-cols">
         <div class="nav-logo">
-            <a href="#">PC Shop</a>
+            <a href="{% url 'home' %}">PC Shop</a>
             <p class="copyright">Copyright &copy; 2022 by Nex. Sva prava su zadržana.</p>
             <h3 class="footer-title-author">Programirao</h3>
             <p class="author">Nemanja  Ilić</p>
@@ -9,9 +9,9 @@
         <div class="footer-nav-links">
             <h3 class="footer-title">Navigacija</h3>
             <ul class="footer-list">
-                <li><a class="footer-list-item" href="#">Prenosni računari</a></li>
-                <li><a class="footer-list-item" href="#">Računari i komponente</a></li>
-                <li><a class="footer-list-item" href="#">Računari i komponente</a></li>
+                <li><a class="footer-list-item" href="{% url 'product_laptop' %}">Prenosni računari</a></li>
+                <li><a class="footer-list-item" href="{% url 'product_pc' %}">Računari i komponente</a></li>
+                <li><a class="footer-list-item" href="#">Oprema Za Računare</a></li>
                 <li><a class="footer-list-item" href="#">Gaming</a></li>
             </ul>
         </div>

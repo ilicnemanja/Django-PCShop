@@ -122,6 +122,11 @@
 }
 
 
+.cart-text {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+}
+
 .icon-cart {
   font-size: 4rem;
   color: #00ff00;
