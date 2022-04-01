@@ -59,7 +59,11 @@ PC Shop | {{product.name}}
                     {% if product.in_stock and product.online_shopping %}
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
+                        {% if not product.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
                         <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
                     {% endif %}
                 </div>
             {% endif %}
