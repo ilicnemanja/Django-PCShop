@@ -21,6 +21,12 @@ Tints: #d9dbf1
   padding: 0;
   box-sizing: border-box;
 }
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(121, 121, 121, 0.5);
+}
+
 html {
   font-size: 62.5%;
 }

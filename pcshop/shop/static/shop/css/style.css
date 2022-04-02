@@ -422,3 +422,122 @@
   padding: 2rem;
   color: #9c0f0f;
 }
+
+/* REGISTER & LOGIN */
+.registration {
+  max-width: 80rem;
+  margin: 7rem auto 0 auto;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px rgba(180, 180, 180, 0.7);
+}
+
+.register-h1 {
+  font-size: 1.8rem;
+  padding: 3rem 4rem;
+}
+
+
+.form-control {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.form-fields {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+
+.form-fields label {
+  display:flex;
+  flex-direction: row;
+}
+
+.form-fields label::after {
+  content: "*";
+  color: red;
+  margin-bottom: 1px;
+}
+
+.form-fields input {
+  width: 100%;
+  border: none;
+  background-color: none;
+  border-bottom: 1px solid rgba(141, 141, 141, 0.6);
+  transition: all 0.4s ease-in-out;
+}
+
+.form-fields input:focus {
+  box-shadow: none;
+  margin-top: 1rem;
+}
+
+.form-fields input::placeholder {
+  font-family: "Quicksand", sans-serif;
+  padding-left: 5px;
+  color: #c4c4c4;
+}
+
+.checkbox-confirm {
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 1rem 0.8rem 1rem 0;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem 4rem;
+  font-size: 1.4rem;
+}
+
+.other-methods-register-h3 {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.other-methods-register {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin: 2rem auto;
+}
+
+.facebook svg {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.google svg {
+  width: 4.8rem;
+  height: 4.8rem;
+}
+
+.registration-info {
+  background-color: #eaeaeac9;
+  display: flex;
+  height: 10rem;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.flex-register-info {
+  margin: 5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.information-icon {
+  padding-right: 2rem;
+  color: #0e770e;
+  width: 5rem;
+  height: 5rem;
+}
+
+.info {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
