@@ -8,7 +8,7 @@
         {% for laptop in laptops %}
             {% if laptop.available %}
                 <div class="product">
-                    <div class="product-content" onclick="location.href='{% url 'product_detail' laptop.category laptop.id %}';">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' laptop.subcategory.category laptop.subcategory.name laptop.id %}';">
                         <h3 class="product-name">{{laptop.name|truncatechars:33}}</h3>
                         <img src="{% if laptop.image %}{{ laptop.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
                         <p class="product-price">{{laptop.price}} RSD</p>
@@ -18,6 +18,154 @@
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
                         {% if not laptop.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+<h3 class="heading-primary">Prenosni računari - Za kućnu upotrebu</h3>
+<div class="container">
+    <div class="home-products">
+        {% for for_home in for_home_use %}
+            {% if for_home.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' for_home.subcategory.category for_home.subcategory.name for_home.id %}';">
+                        <h3 class="product-name">{{for_home.name|truncatechars:33}}</h3>
+                        <img src="{% if for_home.image %}{{ for_home.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{for_home.price}} RSD</p>
+                        <p class="product-description">{{for_home.description|truncatechars:60}}</p>
+                    </div>
+                    {% if for_home.in_stock and for_home.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not for_home.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+<h3 class="heading-primary">Prenosni računari - Za posao</h3>
+<div class="container">
+    <div class="home-products">
+        {% for job in for_job %}
+            {% if job.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' job.subcategory.category job.subcategory.name job.id %}';">
+                        <h3 class="product-name">{{job.name|truncatechars:33}}</h3>
+                        <img src="{% if job.image %}{{ job.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{job.price}} RSD</p>
+                        <p class="product-description">{{job.description|truncatechars:60}}</p>
+                    </div>
+                    {% if job.in_stock and job.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not job.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+<h3 class="heading-primary">Prenosni računari - Za gaming</h3>
+<div class="container">
+    <div class="home-products">
+        {% for gaming in for_gaming %}
+            {% if gaming.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' gaming.subcategory.category gaming.subcategory.name gaming.id %}';">
+                        <h3 class="product-name">{{gaming.name|truncatechars:33}}</h3>
+                        <img src="{% if gaming.image %}{{ gaming.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{gaming.price}} RSD</p>
+                        <p class="product-description">{{gaming.description|truncatechars:60}}</p>
+                    </div>
+                    {% if gaming.in_stock and gaming.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not gaming.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+<h3 class="heading-primary">Prenosni računari - Sa Intel procesorom</h3>
+<div class="container">
+    <div class="home-products">
+        {% for intel in with_intel %}
+            {% if intel.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' intel.subcategory.category intel.subcategory.name intel.id %}';">
+                        <h3 class="product-name">{{intel.name|truncatechars:33}}</h3>
+                        <img src="{% if intel.image %}{{ intel.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{intel.price}} RSD</p>
+                        <p class="product-description">{{intel.description|truncatechars:60}}</p>
+                    </div>
+                    {% if intel.in_stock and intel.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not intel.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+<h3 class="heading-primary">Prenosni računari - Sa AMD procesorom</h3>
+<div class="container">
+    <div class="home-products">
+        {% for amd in with_amd %}
+            {% if amd.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' amd.subcategory.category amd.subcategory.name amd.id %}';">
+                        <h3 class="product-name">{{amd.name|truncatechars:33}}</h3>
+                        <img src="{% if amd.image %}{{ amd.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{amd.price}} RSD</p>
+                        <p class="product-description">{{amd.description|truncatechars:60}}</p>
+                    </div>
+                    {% if amd.in_stock and amd.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not amd.in_stock %}
                         <p class="not-in-stock not-in-stock-homepage">Prodato</p>
                         {% else %}
                         <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>

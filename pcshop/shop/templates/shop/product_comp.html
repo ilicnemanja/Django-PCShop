@@ -1,0 +1,121 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<h3 class="heading-primary">Procesori</h3>
+<div class="container">
+    <div class="home-products">
+        {% for processor in processors %}
+            {% if processor.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' processor.subcategory.category processor.subcategory.name processor.id %}';">
+                        <h3 class="product-name">{{processor.name|truncatechars:33}}</h3>
+                        <img src="{% if processor.image %}{{ processor.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{processor.price}} RSD</p>
+                        <p class="product-description">{{processor.description|truncatechars:60}}</p>
+                    </div>
+                    {% if processor.in_stock and processor.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not processor.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+<h3 class="heading-primary">Matične ploče</h3>
+<div class="container">
+    <div class="home-products">
+        {% for motherboard in motherboards %}
+            {% if motherboard.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' motherboard.subcategory.category motherboard.subcategory.name motherboard.id %}';">
+                        <h3 class="product-name">{{motherboard.name|truncatechars:33}}</h3>
+                        <img src="{% if motherboard.image %}{{ motherboard.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{motherboard.price}} RSD</p>
+                        <p class="product-description">{{motherboard.description|truncatechars:60}}</p>
+                    </div>
+                    {% if motherboard.in_stock and motherboard.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not motherboard.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+<h3 class="heading-primary">Grafičke karte</h3>
+<div class="container">
+    <div class="home-products">
+        {% for graphics in graphics_cards %}
+            {% if graphics.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' graphics.subcategory.category graphics.subcategory.name graphics.id %}';">
+                        <h3 class="product-name">{{graphics.name|truncatechars:33}}</h3>
+                        <img src="{% if graphics.image %}{{ graphics.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{graphics.price}} RSD</p>
+                        <p class="product-description">{{graphics.description|truncatechars:60}}</p>
+                    </div>
+                    {% if graphics.in_stock and graphics.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not graphics.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+<h3 class="heading-primary">RAM Memorija</h3>
+<div class="container">
+    <div class="home-products">
+        {% for ram in pc_ram %}
+            {% if ram.available %}
+                <div class="product">
+                    <div class="product-content" onclick="location.href='{% url 'product_detail' ram.subcategory.category ram.subcategory.name ram.id %}';">
+                        <h3 class="product-name">{{ram.name|truncatechars:33}}</h3>
+                        <img src="{% if ram.image %}{{ ram.image.url }}{% else %}{% static 'pcshop/media/nophoto.jpg' %}{% endif %}" alt="Product image">
+                        <p class="product-price">{{ram.price}} RSD</p>
+                        <p class="product-description">{{ram.description|truncatechars:60}}</p>
+                    </div>
+                    {% if ram.in_stock and ram.online_shopping %}
+                        <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
+                    {% else %}
+                        {% if not ram.in_stock %}
+                        <p class="not-in-stock not-in-stock-homepage">Prodato</p>
+                        {% else %}
+                        <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
+                        {% endif %}
+                    {% endif %}
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+</div>
+{% endblock content %}
