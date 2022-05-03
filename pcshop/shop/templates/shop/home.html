@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+
+{% if products %}
 <h3 class="heading-primary">Preporučujemo za Vas <ion-icon class="icon-heading icon-heading-checkmark" name="checkmark-circle-outline"></ion-icon></h3>
 <div class="container">
     <div class="home-products">
@@ -30,7 +32,10 @@
         
     </div>
 </div>
+{% endif %}
 
+
+{% if products_latest %}
 <h3 class="heading-primary">Najnovije u ponudi <ion-icon class="icon-heading icon-heading-flash" name="flash-outline"></ion-icon></h3>
 <div class="container">
     <div class="home-products home-latest">
@@ -57,8 +62,10 @@
         {% endfor %}
     </div>
 </div>
+{% endif %}
 
 
+{% if laptops or pcs %}
 <h3 class="heading-primary">Preporuka Desktop i laptop računara <ion-icon class="icon-heading icon-heading-accessibility" name="accessibility-outline"></ion-icon></h3>
 <div class="container">
     <div class="home-products home-recommendation">
@@ -106,5 +113,6 @@
             {% endif %}
         {% endfor %}
     </div>
+{% endif %}
 
 {% endblock %}

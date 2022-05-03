@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+
+{% if pcs %}
 <h3 class="heading-primary">Desktop računari</h3>
 <div class="container">
     <div class="home-products">
@@ -17,7 +19,7 @@
                     {% if pc.in_stock and pc.online_shopping %}
                         <a href="#" class="btn product-btn-card"><ion-icon class="icon-card" name="bag-add-outline"></ion-icon></a>
                     {% else %}
-                        {% if not product.in_stock %}
+                        {% if not pc.in_stock %}
                         <p class="not-in-stock not-in-stock-homepage">Prodato</p>
                         {% else %}
                         <p class="not-in-stock not-in-stock-homepage">Kupovina u radnji</p>
@@ -29,7 +31,10 @@
         
     </div>
 </div>
+{% endif %}
 
+
+{% if pc_intel %}
 <h3 class="heading-primary">Desktop računari - Sa Intel procesorom</h3>
 <div class="container">
     <div class="home-products">
@@ -57,8 +62,10 @@
         
     </div>
 </div>
+{% endif %}
 
 
+{% if pc_amd %}
 <h3 class="heading-primary">Desktop računari - Sa AMD procesorom</h3>
 <div class="container">
     <div class="home-products">
@@ -86,5 +93,6 @@
         
     </div>
 </div>
+{% endif %}
 
 {% endblock content %}

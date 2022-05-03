@@ -1,5 +1,3 @@
-from math import prod
-from unicodedata import category
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.views import View
@@ -14,7 +12,7 @@ class HomeView(View):
             subcategory__category__name="Laptop računari")
         pcs = product.Product.objects.all().filter(
             subcategory__category__name="Desktop računari")
-        return render(request, 'shop/home.html', context={"products": all_products, "laptops": laptops, "pcs": pcs, "products_latest":products_latest})
+        return render(request, 'shop/home.html', context={"products": all_products, "laptops": laptops, "pcs": pcs, "products_latest": products_latest})
 
 
 class ProductDetailView(View):
@@ -72,7 +70,17 @@ class CategoryComponentsView(View):
             subcategory__name="Grafičke karte")
         pc_ram = product.Product.objects.all().filter(
             subcategory__name="Memorije")
-        return render(request, 'shop/product_comp.html', context={"processors": processors, "graphics_cards": graphics_cards, "motherboards": motherboards, "pc_ram": pc_ram})
+        ssd = product.Product.objects.all().filter(
+            subcategory__name="SSD")
+        housings = product.Product.objects.all().filter(
+            subcategory__name="Kućišta")
+        power_supply = product.Product.objects.all().filter(
+            subcategory__name="Napajanje")
+        coolers = product.Product.objects.all().filter(
+            subcategory__name="Kuleri i oprema")
+        hard_drives = product.Product.objects.all().filter(
+            subcategory__name="Hard diskovi")
+        return render(request, 'shop/product_comp.html', context={"processors": processors, "graphics_cards": graphics_cards, "motherboards": motherboards, "pc_ram": pc_ram, "ssds": ssd, "housings": housings, "power_supply": power_supply, "coolers": coolers, "hard_drives": hard_drives})
 
 
 class RegisterView(View):

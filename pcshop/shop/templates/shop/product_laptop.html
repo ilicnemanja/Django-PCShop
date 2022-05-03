@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+
+{% if laptops %}
 <h3 class="heading-primary">Prenosni računari</h3>
 <div class="container">
     <div class="home-products">
@@ -30,7 +32,9 @@
         
     </div>
 </div>
+{% endif %}
 
+{% if for_home_use %}
 <h3 class="heading-primary">Prenosni računari - Za kućnu upotrebu</h3>
 <div class="container">
     <div class="home-products">
@@ -59,7 +63,10 @@
         
     </div>
 </div>
+{% endif %}
 
+
+{% if for_job %}
 <h3 class="heading-primary">Prenosni računari - Za posao</h3>
 <div class="container">
     <div class="home-products">
@@ -88,8 +95,10 @@
         
     </div>
 </div>
+{% endif %}
 
 
+{% if for_gaming %}
 <h3 class="heading-primary">Prenosni računari - Za gaming</h3>
 <div class="container">
     <div class="home-products">
@@ -118,8 +127,10 @@
         
     </div>
 </div>
+{% endif %}
 
 
+{% if with_intel %}
 <h3 class="heading-primary">Prenosni računari - Sa Intel procesorom</h3>
 <div class="container">
     <div class="home-products">
@@ -148,8 +159,10 @@
         
     </div>
 </div>
+{% endif %}
 
 
+{% if with_amd %}
 <h3 class="heading-primary">Prenosni računari - Sa AMD procesorom</h3>
 <div class="container">
     <div class="home-products">
@@ -178,4 +191,6 @@
         
     </div>
 </div>
+{% endif %}
+
 {% endblock content %}

@@ -13,8 +13,7 @@ urlpatterns = [
     # product by category view
     path('prenosni-racunari/', CategoryLaptopView.as_view(), name="product_laptop"),
     path('desktop-racunari/', CategoryDesktopView.as_view(), name="product_pc"),
-    path('komponente/',
-         CategoryComponentsView.as_view(), name="product_comp"),
+    path('komponente/', CategoryComponentsView.as_view(), name="product_comp"),
 
     # pc builder
     #path('pc-bilder/', CategoryDesktopView.as_view(), name="pcbuilder"),
