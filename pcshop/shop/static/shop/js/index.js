@@ -1,13 +1,13 @@
 'use strict';
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
 
 // Get the navbar
-var navbar = document.querySelector(".nav");
+let navbar = document.querySelector(".nav");
+
 
 // Get the offset position of the navbar
-var sticky = navbar.offsetTop;
+let sticky = navbar.offsetTop;
+
 
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
 function myFunction() {
@@ -16,9 +16,28 @@ function myFunction() {
   } else {
     navbar.classList.remove("sticky");
   }
+
+  if (document.documentElement.scrollTop > 500) {
+    btnTop.style.display = 'block';
+  } else {
+    btnTop.style.display = 'none';
+  }
 }
 
-// MODAL
+
+// When the user scrolls the page, execute myFunction
+window.onscroll = function () { myFunction() };
+
+
+//  SCROll TO TOP
+const btnTop = document.querySelector('.btn-top');
+
+btnTop.addEventListener('click', function () {
+  window.scroll({ top: 0, behavior: "smooth" })
+})
+
+
+// MODAL CART
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
@@ -34,14 +53,11 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-
 btnOpenModal.addEventListener('click', openModal);
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
 document.addEventListener('keydown', function (e) {
-  // console.log(e.key);
-
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }

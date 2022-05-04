@@ -29,6 +29,7 @@ Tints: #d9dbf1
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -111,6 +112,7 @@ ul li {
   padding-left: 3rem;
   font-weight: 700;
 }
+
 .icon-heading {
   width: 2rem;
   height: 2rem;
@@ -135,17 +137,17 @@ ul li {
 
 .modal {
   position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  
+  height: 70%;
 
   background-color: white;
   padding: 6rem;
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
-  /* overflow-y: hidden; POPRAVITI */ 
 }
 
 .overlay {
